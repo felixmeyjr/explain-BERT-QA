@@ -108,3 +108,4 @@ venv.bak/
 
 # MacOS
 .DS_Store
+/BERT-model-files/
