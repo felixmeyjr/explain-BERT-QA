@@ -15,7 +15,7 @@ python hidden_state_visualizer.py \
     -s {QA sample JSON-file} \
     -m {path to BERT model file} \
     --bert_model {optional} \
-    --output_dir {plots are saved here, defaults to "./output"} \
+    --output_dir {plots are saved here defaults to "./output"} \
     --cache_dir {cache directory} \
     --lower_case {True for lower-cased BERT models} \
     --plot_title {experiment title to use for plots}
