@@ -27,9 +27,13 @@ class BertQAModel:
         # Load a pretrained model that has been fine-tuned
         config = BertConfig.from_pretrained(self.model_type, output_hidden_states=True, cache_dir=self.cache_dir)
 
-        pretrained_weights = torch.load(self.model_path, map_location=torch.device(self.device))
+        # pretrained_weights = torch.load(self.model_path, map_location=torch.device(self.device))
+
+        # Rewrite the pretrained call to not use the model_path arg from argparse
+        # pretrained_weights = torch.load(self.model_path, map_location=torch.device(self.device))
+
         model = BertForQuestionAnswering.from_pretrained(self.model_type,
-                                                         state_dict=pretrained_weights,
+                                                         # state_dict=pretrained_weights,
                                                          config=config,
                                                          cache_dir=self.cache_dir)
         return model
