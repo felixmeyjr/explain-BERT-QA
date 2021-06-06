@@ -112,3 +112,4 @@ venv.bak/
 /visualization/cache/
 /cache/
 /visualization/output/
+/bert-base-uncased-squad-v1/
