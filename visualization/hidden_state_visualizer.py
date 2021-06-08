@@ -112,7 +112,7 @@ class QAHiddenStateVisualizer:
 def run():
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--sample_path", help="directory where sample file is stored", required=True)
-    # parser.add_argument("-m", "--model_path", help="directory where sample file is stored", required=True)
+    parser.add_argument("-m", "--model_path", help="directory where sample file is stored", required=True)
     parser.add_argument("--bert_model", help="type of bert model / tokenizer used", default="bert-base-uncased")
     parser.add_argument("--output_dir", help="directory to store the output files", default="./output")
     parser.add_argument("--cache_dir", help="directory to store the cache files", default="./cache")
@@ -123,7 +123,7 @@ def run():
     sample: QASample = QASample.from_json_file(args.sample_path)
 
     bert_model: BertQAModel = BertQAModel(
-        model_path="",
+        model_path=args.model_path,
         model_type=args.bert_model,
         lower_case=args.lower_case,
         cache_dir=args.cache_dir)

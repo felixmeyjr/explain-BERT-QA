@@ -4,6 +4,7 @@ import os
 import logging
 import torch
 from transformers import BertForQuestionAnswering, BertTokenizer, BertConfig
+# from transformers import AutoModelForQuestionAnswering, AutoTokenizer
 
 from data_utils import QASample, SquadExample, QAInputFeatures, RawResult, read_squad_example, \
     convert_qa_example_to_features, parse_prediction
@@ -26,16 +27,22 @@ class BertQAModel:
     def load_model(self):
         # Load a pretrained model that has been fine-tuned
         config = BertConfig.from_pretrained(self.model_type, output_hidden_states=True, cache_dir=self.cache_dir)
+        # config = AutoConfig.from_pretrained(r"C:\REPO\DL-project\explain-BERT-QA\bert-base-uncased-squad-v1\config.json",
+        #                                     output_hidden_states=True, cache_dir=self.cache_dir)
+        # config = BertConfig.from_pretrained(r"C:\REPO\DL-project\explain-BERT-QA\bert-base-uncased-squad-v1\config.json",
+        #                                     output_hidden_states=True, cache_dir=self.cache_dir)
+        # config = BertConfig.from_pretrained("bert-base-uncased",
+        #                                     output_hidden_states=True, cache_dir=self.cache_dir)
 
-        # pretrained_weights = torch.load(self.model_path, map_location=torch.device(self.device))
-
-        # Rewrite the pretrained call to not use the model_path arg from argparse
-        # pretrained_weights = torch.load(self.model_path, map_location=torch.device(self.device))
+        pretrained_weights = torch.load(self.model_path, map_location=torch.device(self.device))
+        # pretrained_weights = BertForQuestionAnswering.from_pretrained(r"C:\REPO\DL-project\explain-BERT-QA\bert-base-uncased-squad-v1\pytorch_model.bin")
+        # pretrained_weights = AutoModelForQuestionAnswering.from_pretrained(r"C:\REPO\DL-project\explain-BERT-QA\bert-base-uncased-squad-v1\pytorch_model.bin")
 
         model = BertForQuestionAnswering.from_pretrained(self.model_type,
-                                                         # state_dict=pretrained_weights,
+                                                         state_dict=pretrained_weights,
                                                          config=config,
                                                          cache_dir=self.cache_dir)
+
         return model
 
     def load_tokenizer(self):
