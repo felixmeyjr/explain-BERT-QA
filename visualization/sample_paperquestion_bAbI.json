@@ -1,0 +1,5 @@
+{
+  "question": "What is Emily afraid of?",
+  "context": "Wolves are afraid of cats.\nSheep are afraid of wolves.\nMice are afraid of sheep.\nGertrude is a mouse.\nJessica is a mouse.\nEmily is a wolf.\nCats are afraid of sheep.\nWinona is a wolf.",
+  "answer": "cats"
+}
