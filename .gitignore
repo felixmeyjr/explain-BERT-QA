@@ -1,3 +1,12 @@
+# Datasets OUR STUFF
+/BERT-model-files/
+/visualization/cache/
+/cache/
+/visualization/output/
+/bert-base-uncased-squad-v1/
+/paper-models/
+/BERT-model-files/vocab.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -108,10 +117,7 @@ venv.bak/
 
 # MacOS
 .DS_Store
-/BERT-model-files/
-/visualization/cache/
-/cache/
-/visualization/output/
-/bert-base-uncased-squad-v1/
-/paper-models/
+
+
+
 
